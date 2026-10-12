@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Omelette – Talk to strangers</title>
+  <meta name="description" content="Omelette: crack open a random conversation. Video or text chat with a stranger." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ========== LANDING ========== -->
+  <main id="landing" class="landing">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <header class="topbar">
+      <div class="logo"><span class="logo-egg">🍳</span> omelette</div>
+      <div class="online-pill"><span class="dot"></span><span id="onlineLanding">0</span> online</div>
+    </header>
+
+    <section class="hero">
+      <h1>Crack open a <span class="highlight">random</span> conversation.</h1>
+      <p class="sub">Meet someone new in seconds. Chat by video or text with a stranger from anywhere in the world.</p>
+
+      <div class="cards">
+        <button class="card" id="startVideo">
+          <span class="card-icon">🎥</span>
+          <span class="card-title">Video chat</span>
+          <span class="card-text">Face to face with a random stranger</span>
+        </button>
+        <button class="card" id="startText">
+          <span class="card-icon">💬</span>
+          <span class="card-title">Text chat</span>
+          <span class="card-text">Just words, no camera needed</span>
+        </button>
+      </div>
+
+      <label class="agree">
+        <input type="checkbox" id="ageCheck" />
+        <span>I am 18 or older and agree to be respectful and follow the <a href="#" id="rulesLink">community rules</a>.</span>
+      </label>
+      <p class="warn" id="ageWarn" hidden>Please confirm you're 18+ to continue.</p>
+    </section>
+
+    <footer class="foot">Be kind. Don't share personal info. You can report or skip anyone at any time.</footer>
+  </main>
+
+  <!-- ========== CHAT ========== -->
+  <section id="chat" class="chat" hidden>
+    <header class="chat-top">
+      <div class="logo small"><span class="logo-egg">🍳</span> omelette</div>
+      <div class="status" id="status">Connecting…</div>
+      <div class="online-pill"><span class="dot"></span><span id="onlineChat">0</span></div>
+    </header>
+
+    <div class="chat-body" id="chatBody">
+      <div class="video-panel" id="videoPanel">
+        <div class="video-box remote">
+          <video id="remoteVideo" autoplay playsinline></video>
+          <div class="video-placeholder" id="remotePlaceholder">
+            <div class="spinner"></div>
+            <p id="placeholderText">Looking for someone…</p>
+          </div>
+          <span class="tag">Stranger</span>
+        </div>
+        <div class="video-box local">
+          <video id="localVideo" autoplay playsinline muted></video>
+          <span class="tag">You</span>
+        </div>
+      </div>
+
+      <div class="message-panel">
+        <div class="messages" id="messages"></div>
+        <div class="typing" id="typing" hidden>Stranger is typing…</div>
+        <form class="composer" id="composer">
+          <input id="msgInput" type="text" placeholder="Say hi…" autocomplete="off" maxlength="1000" disabled />
+          <button type="submit" id="sendBtn" disabled aria-label="Send">➤</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="controls">
+      <button class="btn ghost" id="stopBtn">✕ Stop</button>
+      <button class="btn ghost icon" id="muteBtn" title="Mute microphone">🎤</button>
+      <button class="btn ghost icon" id="camBtn" title="Turn camera off">📷</button>
+      <button class="btn ghost" id="reportBtn">⚑ Report</button>
+      <button class="btn primary" id="nextBtn">Next ➜</button>
+    </footer>
+  </section>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
