@@ -226,5 +226,3 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   margin-left: 6px; background: var(--egg); color: var(--ink); font-weight: 600;
   padding: 3px 12px; border-radius: 999px; font-size: 12px;
 }
-.unmute { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 5; padding: 10px 20px; }
-.unmute:hover { transform: translateX(-50%) translateY(-2px); }
