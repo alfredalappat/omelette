@@ -67,33 +67,21 @@
   // ---------- autoplay + in-app browser handling ----------
   const IN_APP = /Instagram|FBAN|FBAV|FB_IAB|Line\/|Snapchat|TikTok/i.test(navigator.userAgent);
 
-  function showUnmute(show) {
-    let b = document.getElementById('unmuteBtn');
-    if (!b && show) {
-      b = document.createElement('button');
-      b.id = 'unmuteBtn';
-      b.className = 'btn primary unmute';
-      b.textContent = '🔊 Tap to play video';
-      b.addEventListener('click', () => {
-        el.remoteVideo.muted = false;
-        el.remoteVideo.play().then(() => showUnmute(false)).catch(() => {});
-      });
-      document.querySelector('.video-box.remote').appendChild(b);
-    }
-    if (b) b.hidden = !show;
-  }
-
   async function playRemote() {
-    el.remoteVideo.muted = false;
-    try {
-      await el.remoteVideo.play();
-      showUnmute(false);
-    } catch (err) {
-      // Autoplay with sound was blocked (common in in-app browsers): start muted, ask for a tap
-      el.remoteVideo.muted = true;
-      try { await el.remoteVideo.play(); } catch (_) {}
-      showUnmute(true);
-    }
+    const v = el.remoteVideo;
+    v.muted = false;
+    try { await v.play();  return; } catch (_) {}
+    // play() can be interrupted while the stream is still loading, so retry once
+    await new Promise((r) => setTimeout(r, 300));
+    try { await v.play();  return; } catch (_) {}
+    // Still blocked (in-app browsers): play muted; any tap on the page turns sound on
+    v.muted = true;
+    try { await v.play(); } catch (_) {}
+    document.addEventListener('pointerdown', () => {
+      v.muted = false;
+      v.play().catch(() => {});
+      
+    }, { once: true });
   }
 
   if (IN_APP) {
