@@ -64,6 +64,50 @@
     if (on) el.input.focus();
   }
 
+  // ---------- autoplay + in-app browser handling ----------
+  const IN_APP = /Instagram|FBAN|FBAV|FB_IAB|Line\/|Snapchat|TikTok/i.test(navigator.userAgent);
+
+  function showUnmute(show) {
+    let b = document.getElementById('unmuteBtn');
+    if (!b && show) {
+      b = document.createElement('button');
+      b.id = 'unmuteBtn';
+      b.className = 'btn primary unmute';
+      b.textContent = '🔊 Tap to play video';
+      b.addEventListener('click', () => {
+        el.remoteVideo.muted = false;
+        el.remoteVideo.play().then(() => showUnmute(false)).catch(() => {});
+      });
+      document.querySelector('.video-box.remote').appendChild(b);
+    }
+    if (b) b.hidden = !show;
+  }
+
+  async function playRemote() {
+    el.remoteVideo.muted = false;
+    try {
+      await el.remoteVideo.play();
+      showUnmute(false);
+    } catch (err) {
+      // Autoplay with sound was blocked (common in in-app browsers): start muted, ask for a tap
+      el.remoteVideo.muted = true;
+      try { await el.remoteVideo.play(); } catch (_) {}
+      showUnmute(true);
+    }
+  }
+
+  if (IN_APP) {
+    const bar = document.createElement('div');
+    bar.className = 'inapp-banner';
+    bar.innerHTML = 'For the best video chat, open this page in <b>Chrome</b> or <b>Safari</b> (tap ⋯ → Open in browser). ' +
+      '<button id="copyLink">Copy link</button>';
+    document.body.prepend(bar);
+    bar.querySelector('#copyLink').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(location.href); toast('Link copied. Paste it in your browser.'); }
+      catch (_) { toast('Tap ⋯ → Open in browser'); }
+    });
+  }
+
   // ---------- WebRTC ----------
   function closePeer() {
     if (pc) {
@@ -84,6 +128,7 @@
     pc.ontrack = (e) => {
       el.remoteVideo.srcObject = e.streams[0];
       setPlaceholder(false);
+      playRemote();
     };
     pc.onicecandidate = (e) => {
       if (e.candidate) socket.emit('signal', { candidate: e.candidate });
