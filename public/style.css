@@ -216,3 +216,15 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .btn { padding: 10px 16px; font-size: 14px; }
   .btn.primary { padding: 10px 26px; }
 }
+
+/* ---------- In-app browser notice + tap-to-play ---------- */
+.inapp-banner {
+  position: relative; z-index: 60; background: var(--ink); color: #fff; font-size: 13px; line-height: 1.4;
+  padding: 10px 14px; text-align: center;
+}
+.inapp-banner button {
+  margin-left: 6px; background: var(--egg); color: var(--ink); font-weight: 600;
+  padding: 3px 12px; border-radius: 999px; font-size: 12px;
+}
+.unmute { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 5; padding: 10px 20px; }
+.unmute:hover { transform: translateX(-50%) translateY(-2px); }
