@@ -3,8 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Omelette – Talk to strangers</title>
-  <meta name="description" content="Omelette: crack open a random conversation. Video or text chat with a stranger." />
+  <title>Omelette – Free Random Video Chat & Text Chat with Strangers</title>
+  <meta name="description" content="Omelette is a free random chat site. Meet new people instantly with random video chat or text chat with strangers from around the world. No sign-up needed." />
+  <meta name="keywords" content="random video chat, chat with strangers, talk to strangers, random text chat, free video chat, omelette chat" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#ffc93c" />
+  <link rel="canonical" href="https://www.omelette.linkpc.net/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍳%3C/text%3E%3C/svg%3E" />
+
+  <!-- Google Search Console: paste the verification tag Google gives you right below this line -->
+  <!-- <meta name="google-site-verification" content="YOUR_CODE_HERE" /> -->
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Omelette" />
+  <meta property="og:title" content="Omelette – Free Random Video Chat & Text Chat with Strangers" />
+  <meta property="og:description" content="Crack open a random conversation. Meet someone new in seconds by video or text. Free, no sign-up." />
+  <meta property="og:url" content="https://www.omelette.linkpc.net/" />
+  <meta property="og:image" content="https://www.omelette.linkpc.net/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Omelette – Free Random Video Chat & Text Chat with Strangers" />
+  <meta name="twitter:description" content="Crack open a random conversation. Meet someone new in seconds by video or text." />
+  <meta name="twitter:image" content="https://www.omelette.linkpc.net/og-image.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Omelette",
+    "url": "https://www.omelette.linkpc.net/",
+    "description": "Free random video chat and text chat with strangers from around the world.",
+    "applicationCategory": "SocialNetworkingApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -25,13 +59,6 @@
       <h1>Crack open a <span class="highlight">random</span> conversation.</h1>
       <p class="sub">Meet someone new in seconds. Chat by video or text with a stranger from anywhere in the world.</p>
 
-      <label class="agree">
-        <input type="checkbox" id="ageCheck" />
-        <span>I am 18 or older and agree to be respectful and follow the <a href="#" id="rulesLink">community rules</a>.</span>
-      </label>
-      <p class="warn" id="ageWarn" hidden>Please confirm you're 18+ to continue.</p>
-    </section>
-    
       <div class="cards">
         <button class="card" id="startVideo">
           <span class="card-icon">🎥</span>
@@ -45,7 +72,36 @@
         </button>
       </div>
 
-      
+      <label class="agree">
+        <input type="checkbox" id="ageCheck" />
+        <span>I am 18 or older and agree to be respectful and follow the <a href="#" id="rulesLink">community rules</a>.</span>
+      </label>
+      <p class="warn" id="ageWarn" hidden>Please confirm you're 18+ to continue.</p>
+    </section>
+
+
+    <section class="info" aria-labelledby="how">
+      <h2 id="how">How Omelette works</h2>
+      <div class="info-grid">
+        <div><span class="num">1</span><h3>Pick video or text</h3><p>Choose a random video chat or a text-only chat with a stranger. Video chat asks for your camera and microphone, text chat needs neither.</p></div>
+        <div><span class="num">2</span><h3>Get matched instantly</h3><p>Omelette pairs you with another person who is online right now. No account, no profile, no sign-up.</p></div>
+        <div><span class="num">3</span><h3>Chat, skip or report</h3><p>Hit Next to meet someone new, or Stop to leave. If someone breaks the rules, use Report and you will be moved on.</p></div>
+      </div>
+
+      <h2>Stay safe on Omelette</h2>
+      <ul class="safety">
+        <li>You must be 18 or older to use Omelette.</li>
+        <li>Never share your full name, address, phone number or passwords with a stranger.</li>
+        <li>Be respectful. Nudity, harassment, hate and illegal content are not allowed.</li>
+        <li>You can skip or report anyone at any time.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <details><summary>Is Omelette free?</summary><p>Yes. Random video chat and text chat on Omelette are free to use, with no sign-up.</p></details>
+      <details><summary>Do I need to create an account?</summary><p>No. Open the site, tick the 18+ box and start chatting.</p></details>
+      <details><summary>Why is my camera not working?</summary><p>Allow camera and microphone access when your browser asks. If you opened the link inside Instagram or another app, open it in Chrome or Safari instead.</p></details>
+      <details><summary>Can I chat without video?</summary><p>Yes. Choose Text chat to talk to a random stranger using messages only.</p></details>
+    </section>
 
     <footer class="foot">Be kind. Don't share personal info. You can report or skip anyone at any time.</footer>
   </main>
