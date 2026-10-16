@@ -226,3 +226,16 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   margin-left: 6px; background: var(--egg); color: var(--ink); font-weight: 600;
   padding: 3px 12px; border-radius: 999px; font-size: 12px;
 }
+
+/* ---------- SEO / info section ---------- */
+.info { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 24px 0 40px; width: 100%; }
+.info h2 { font-family: 'Fredoka', sans-serif; font-size: clamp(24px, 4vw, 32px); margin: 36px 0 16px; letter-spacing: -0.5px; }
+.info h3 { font-family: 'Fredoka', sans-serif; font-size: 18px; margin: 10px 0 6px; }
+.info p, .info li { color: var(--ink-soft); line-height: 1.6; font-size: 15px; }
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.info-grid > div { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; box-shadow: var(--shadow); }
+.num { display: inline-flex; width: 32px; height: 32px; border-radius: 50%; background: var(--egg); font-weight: 700; align-items: center; justify-content: center; }
+.safety { padding-left: 20px; display: grid; gap: 6px; }
+.info details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; margin-bottom: 10px; }
+.info summary { cursor: pointer; font-weight: 600; }
+.info details p { margin-top: 8px; }
