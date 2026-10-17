@@ -9,10 +9,13 @@
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#ffc93c" />
   <link rel="canonical" href="https://www.omelette.linkpc.net/" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍳%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
   <!-- Google Search Console: paste the verification tag Google gives you right below this line -->
-  <meta name="google-site-verification" content="gT98wriPEXi_PdJgLQScLDcrGA6aM8n-ZB_xrBPTVWs" />
+    <meta name="google-site-verification" content="gT98wriPEXi_PdJgLQScLDcrGA6aM8n-ZB_xrBPTVWs" />
   <!-- <meta name="google-site-verification" content="YOUR_CODE_HERE" /> -->
 
   <meta property="og:type" content="website" />
@@ -27,6 +30,16 @@
   <meta name="twitter:title" content="Omelette – Free Random Video Chat & Text Chat with Strangers" />
   <meta name="twitter:description" content="Crack open a random conversation. Meet someone new in seconds by video or text." />
   <meta name="twitter:image" content="https://www.omelette.linkpc.net/og-image.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Omelette",
+    "alternateName": ["Omelette Chat", "Omelette Random Video Chat"],
+    "url": "https://www.omelette.linkpc.net/"
+  }
+  </script>
 
   <script type="application/ld+json">
   {
@@ -59,7 +72,12 @@
     <section class="hero">
       <h1>Crack open a <span class="highlight">random</span> conversation.</h1>
       <p class="sub">Meet someone new in seconds. Chat by video or text with a stranger from anywhere in the world.</p>
-
+ <label class="agree">
+        <input type="checkbox" id="ageCheck" />
+        <span>I am 18 or older and agree to be respectful and follow the <a href="#" id="rulesLink">community rules</a>.</span>
+      </label>
+      <p class="warn" id="ageWarn" hidden>Please confirm you're 18+ to continue.</p>
+      
       <div class="cards">
         <button class="card" id="startVideo">
           <span class="card-icon">🎥</span>
